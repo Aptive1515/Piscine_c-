@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:53:11 by aptive            #+#    #+#             */
-/*   Updated: 2022/06/20 18:13:39 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/17 17:43:28 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(int ac, char **av)
 {
-	int	i = 0;
+	int	i(0);
 	int j;
 
 	(void)av;
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		{
 			j = -1;
 			while(av[i][++j])
-				av[i][j] = toupper(av[i][j]);
+				av[i][j] = std::toupper(av[i][j]);
 			std::cout << av[i];
 		}
 	}

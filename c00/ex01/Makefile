@@ -3,40 +3,49 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
+#    By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/06/21 17:14:59 by aptive           ###   ########.fr        #
+#    Updated: 2022/10/17 19:03:03 by tdelauna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	phone
+OS		= $(shell uname)
 
-SRCS	=	main.cpp\
-			PhoneBook.class.cpp\
+# directories
+SRCDIR		=	./src
+INCDIR		=	./includes
+OBJDIR		=	./obj
+
+# src / obj files
+SRC		=	main.cpp\
 			Contact.class.cpp\
+			PhoneBook.class.cpp\
 
 
+OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
-CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror
-OBJS	=	$(SRCS:.cpp=.o)
+# compiler
+CC		= c++
+CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address
 
-%.o:		%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+all: obj $(NAME)
 
-all:		$(NAME)
+obj:
+	mkdir -p $(OBJDIR)
 
-$(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(OBJDIR)/%.o:	$(SRCDIR)/%.cpp
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -lm -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
-re : fclean all
-
-
-
+re: fclean
+	make all

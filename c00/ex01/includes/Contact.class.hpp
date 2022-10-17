@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:09:03 by aptive            #+#    #+#             */
-/*   Updated: 2022/06/22 01:07:59 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:24:24 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 class Contact
 {
-	// char darkest[20];
 	public:
-		char	first_name[20] = "\0";
-		char	last_name[20] = "\0";
-		char	nickname[20] = "\0";
-		char	phone_number[20] = "\0";
-		char	darkest_secret[20] = "\0";
 			Contact(void);
 			~Contact(void);
 	void	add_contact(void);
+	std::string	getstr(std::string str) const;
+
 	private:
-		/* data */
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
 };
 
 

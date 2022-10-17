@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:45:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/06/22 01:23:22 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:15:17 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,36 @@ int	main(void)
 {
 	Contact contact_phone[8];
 	PhoneBook instance;
-	char cmd[100];
-	int	out;
-	int	i = 0;
-	out = 1;
+	std::string cmd;
+	int	i(0);
 	instance.contact_to_book(contact_phone);
 	// std::basic_string<char> string;
 
 
 
-	while (out)
+	while (1)
 	{
 		std::cout << "Entrez une commande : " << std::endl;
 		std::cin >> cmd;
 		// std::cout << "La commande est : " << cmd << std::endl;
-		if (!strcmp(cmd, "ADD"))
+		if (std::cin.eof())
+			return (0);
+		if (!cmd.compare("ADD"))
 		{
 			contact_phone[i].add_contact();
 			i++;
+			if (i == 8)
+				i = 0;
 		}
-		else if (!strcmp(cmd, "SEARCH"))
+		else if (!cmd.compare("SEARCH"))
 		{
 			instance.affichage_contact(contact_phone);
 			instance.affichage_index(contact_phone);
 		}
-		else if (!strcmp(cmd, "EXIT"))
-			out = 0;
+		else if (!cmd.compare("EXIT"))
+			return (0);
 		else
 			std::cout << "ERROR : BAD COMMAND" << std::endl;
-		if (i == 8)
-			i = 0;
-		// std::cout << "i : " << i << std::endl;
-		// std::cout << "out : " << out <<std::endl;
 	}
-	return (1);
+	return (0);
 }

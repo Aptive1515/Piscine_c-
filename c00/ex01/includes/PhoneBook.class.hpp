@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:38:59 by aptive            #+#    #+#             */
-/*   Updated: 2022/06/22 00:53:31 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:37:03 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class PhoneBook {
 
 public:
-	Contact repertory[8];
+	Contact	repertory[8];
 
 			PhoneBook(void);
 			~PhoneBook(void);
@@ -26,9 +26,10 @@ public:
 	void	affichage_contact(Contact *contact_phone) const;
 	void	fonction(void);
 	void	affichage_index(Contact *contact_phone) const;
+
 private:
 	void	_affichage_index(int index) const;
-	void	_affichage_str(char *str) const;
+	void	_affichage_str(std::string str) const;
 };
 
 #endif
