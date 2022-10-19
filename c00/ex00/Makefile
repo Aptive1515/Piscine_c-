@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
+#    By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/06/20 17:57:50 by aptive           ###   ########.fr        #
+#    Updated: 2022/10/19 17:07:37 by tdelauna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	megaphone
 SRCS	=	megaphone.cpp
 CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 OBJS	=	$(SRCS:.cpp=.o)
 
 %.o:		%.cpp

@@ -6,7 +6,7 @@
 #    By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/10/17 19:03:03 by tdelauna         ###   ########.fr        #
+#    Updated: 2022/10/19 16:29:22 by tdelauna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
 # compiler
 CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g3 -std=c++98#-fsanitize=address
 
 all: obj $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:38:59 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/17 18:37:03 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/19 18:07:15 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class PhoneBook {
 
 public:
-	Contact	repertory[8];
 
 			PhoneBook(void);
 			~PhoneBook(void);
@@ -26,8 +25,11 @@ public:
 	void	affichage_contact(Contact *contact_phone) const;
 	void	fonction(void);
 	void	affichage_index(Contact *contact_phone) const;
+	void	setRepertory(int i);
+	Contact	*getRepertory();
 
 private:
+	Contact	repertory[8];
 	void	_affichage_index(int index) const;
 	void	_affichage_str(std::string str) const;
 };
