@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:45:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/18 17:04:50 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/20 15:40:03 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void affichage_index(int	index)
 {
 	std::cout << "|         " << index;
-
-
 }
 
 void	affichage_str(char *str)
@@ -24,53 +22,47 @@ void	affichage_str(char *str)
 	int	j;
 
 	j = -1;
-	// if (str[0] != '\0')
-	// {
-		std::cout << "|" ;
-		while (++j < 10 - (int)strlen(str))
-			std::cout << " ";
-		if ((int)strlen(str) > 10)
-		{
-			int k = -1;
-			while (++k < 9)
-				std::cout << str[k];
-			std::cout << ".";
-		}
-		else
-			std::cout << str;
-
-	// }
-	// else
-	// 	std::cout << "|          ";
+	std::cout << "|" ;
+	while (++j < 10 - (int)strlen(str))
+		std::cout << " ";
+	if ((int)strlen(str) > 10)
+	{
+		int k = -1;
+		while (++k < 9)
+			std::cout << str[k];
+		std::cout << ".";
+	}
+	else
+		std::cout << str;
 
 }
 
 int	main(void)
 {
-	Contact contact_phone[8];
 	PhoneBook phonebook;
 	std::string cmd;
 	int	i(0);
 
-	phonebook.contact_to_book(contact_phone);
+	phonebook.contact_to_book(phonebook.getRepertory());
 	while (1)
 	{
 		std::cin.clear();
 		std::cout << "Entrez une commande : " << std::endl;
-		std::cin >> cmd;
+		getline(std::cin, cmd);
 		if (std::cin.eof())
 			return (0);
 		if (!cmd.compare("ADD"))
 		{
-			contact_phone[i].add_contact();
+			phonebook.setRepertory(i);
 			i++;
 			if (i == 8)
 				i = 0;
+			std::cin.clear();
 		}
 		else if (!cmd.compare("SEARCH"))
 		{
-			phonebook.affichage_contact(contact_phone);
-			phonebook.affichage_index(contact_phone);
+			phonebook.affichage_contact(phonebook.getRepertory());
+			phonebook.affichage_index(phonebook.getRepertory());
 		}
 		else if (!cmd.compare("EXIT"))
 			return (0);

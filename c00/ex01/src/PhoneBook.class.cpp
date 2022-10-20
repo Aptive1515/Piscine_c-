@@ -6,22 +6,18 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:41:13 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/18 17:14:25 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/20 15:38:49 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/phone.hpp"
 
 
-PhoneBook::PhoneBook(void){
-	// std::cout << "Constructor called Phonebook" << std::endl;
-	return;
-}
+PhoneBook::PhoneBook(void)
+{}
 
-PhoneBook::~PhoneBook(void){
-	// std::cout << "Destructor called" << std::endl;
-	return;
-}
+PhoneBook::~PhoneBook(void)
+{}
 void PhoneBook::contact_to_book(Contact *contact_phone)
 {
 	int	i = -1;
@@ -41,8 +37,7 @@ void	PhoneBook::_affichage_str(std::string str) const
 	int	j(-1);
 
 	std::cout << "|";
-	// std::cout << std::endl << "strlen :" << strlen(str) << std::endl;
-	if (str[0])
+	if (str[0] != '\0')
 	{
 		while (++j < 10 - (int)str.length())
 			std::cout << " ";
@@ -58,7 +53,6 @@ void	PhoneBook::_affichage_str(std::string str) const
 	}
 	else
 		std::cout << "          ";
-
 }
 
 void PhoneBook::affichage_contact(Contact *contact_phone) const
@@ -81,23 +75,42 @@ void PhoneBook::affichage_contact(Contact *contact_phone) const
 
 void	PhoneBook::affichage_index(Contact *contact_phone) const
 {
-	int	i(0);
+	std::string	str;
+	int	i(-1);
 
 	std::cout << "Entrer l'index : " << std::endl;
-	std::cin >> i;
+	getline(std::cin, str);
 
-	if (i >= 1 && i <= 8)
+	for (int j = 0; j < (int)str.length(); j++)
 	{
-		std::cout << "First name : " << contact_phone[i - 1].getstr("_last_name") << std::endl;
-		std::cout << "Last name : " << contact_phone[i - 1].getstr("_first_name")<< std::endl;
-		std::cout << "Nickname : " << contact_phone[i - 1].getstr("_nickname") << std::endl;
-		std::cout << "Phone number : " << contact_phone[i - 1].getstr("_phone_number") << std::endl;
-		std::cout << "Darkest_secret : " << contact_phone[i - 1].getstr("_darkest_secret") << std::endl;
+		if (!std::isdigit(str[j]))
+		{
+			std::cout << "Error : Mauvais index" << std::endl;
+			return;
+		}
 	}
-	// else
-	// {
-	// 	std::cout << "Error : Mauvais index" << std::endl;
-	// 	std::cin.clear();
-	// }
+	const char *str_char = str.c_str();
+	i = atoi(str_char);
+	if (i < 0 || i > 7)
+		std::cout << "Error : Mauvais index" << std::endl;
+	else
+	{
+		std::cout << "First name : " << contact_phone[i].getstr("_last_name") << std::endl;
+		std::cout << "Last name : " << contact_phone[i].getstr("_first_name")<< std::endl;
+		std::cout << "Nickname : " << contact_phone[i].getstr("_nickname") << std::endl;
+		std::cout << "Phone number : " << contact_phone[i].getstr("_phone_number") << std::endl;
+		std::cout << "Darkest_secret : " << contact_phone[i].getstr("_darkest_secret") << std::endl;
+		std::cout << std::endl;
+	}
 	return;
+}
+
+void	PhoneBook::setRepertory(int	i)
+{
+	repertory[i].add_contact();
+}
+
+Contact	*PhoneBook::getRepertory()
+{
+	return (this->repertory);
 }
