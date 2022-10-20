@@ -3,25 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:11:14 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/17 18:32:17 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:24:50 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone.hpp"
+#include "../includes/phone.hpp"
 
 Contact::Contact(void)
 {
-	// std::cout << "initialisation classe contact" << std::endl;
-	// // int i = 0;
-	// // while (i < 20)
-	// // {
-	// // 	// this->first_name[i] = '\0';
-	// // 	// this->last_name[i] = '\0';
-	// // 	i++;
-	// // }
 }
 
 Contact::~Contact()
@@ -40,7 +32,6 @@ void	Contact::add_contact(void)
 	std::cin >> this->_phone_number;
 	std::cout << "Enter the darkest secret : " << std::endl;
 	std::cin >> this->_darkest_secret;
-	// std::cout << "The fist name is : " << this->first_name << std::endl;
 }
 
 std::string	Contact::getstr(std::string str) const

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:45:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/17 18:15:17 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:04:50 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone.hpp"
-#include "PhoneBook.class.hpp"
-#include "Contact.class.hpp"
+#include "../includes/phone.hpp"
 
 void affichage_index(int	index)
 {
@@ -50,19 +48,16 @@ void	affichage_str(char *str)
 int	main(void)
 {
 	Contact contact_phone[8];
-	PhoneBook instance;
+	PhoneBook phonebook;
 	std::string cmd;
 	int	i(0);
-	instance.contact_to_book(contact_phone);
-	// std::basic_string<char> string;
 
-
-
+	phonebook.contact_to_book(contact_phone);
 	while (1)
 	{
+		std::cin.clear();
 		std::cout << "Entrez une commande : " << std::endl;
 		std::cin >> cmd;
-		// std::cout << "La commande est : " << cmd << std::endl;
 		if (std::cin.eof())
 			return (0);
 		if (!cmd.compare("ADD"))
@@ -74,8 +69,8 @@ int	main(void)
 		}
 		else if (!cmd.compare("SEARCH"))
 		{
-			instance.affichage_contact(contact_phone);
-			instance.affichage_index(contact_phone);
+			phonebook.affichage_contact(contact_phone);
+			phonebook.affichage_index(contact_phone);
 		}
 		else if (!cmd.compare("EXIT"))
 			return (0);

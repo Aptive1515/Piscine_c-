@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:41:13 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/17 18:37:56 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:14:25 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone.hpp"
+#include "../includes/phone.hpp"
 
 
 PhoneBook::PhoneBook(void){
@@ -42,7 +42,7 @@ void	PhoneBook::_affichage_str(std::string str) const
 
 	std::cout << "|";
 	// std::cout << std::endl << "strlen :" << strlen(str) << std::endl;
-	if (str[0] != '\0')
+	if (str[0])
 	{
 		while (++j < 10 - (int)str.length())
 			std::cout << " ";
@@ -73,8 +73,6 @@ void PhoneBook::affichage_contact(Contact *contact_phone) const
 		_affichage_str(contact_phone[i].getstr("_first_name"));
 		_affichage_str(contact_phone[i].getstr("_first_name"));
 		_affichage_str(contact_phone[i].getstr("_nickname"));
-		std::cout << "|          ";
-		std::cout << "|          ";
 		std::cout << "|";
 		std::cout << std::endl;
 	}
@@ -83,25 +81,23 @@ void PhoneBook::affichage_contact(Contact *contact_phone) const
 
 void	PhoneBook::affichage_index(Contact *contact_phone) const
 {
-	int	i;
+	int	i(0);
+
 	std::cout << "Entrer l'index : " << std::endl;
 	std::cin >> i;
-	(void)contact_phone;
 
-	if (i < 0 || i > 7)
-		std::cout << "Error : Mauvais index" << std::endl;
-	else
+	if (i >= 1 && i <= 8)
 	{
-		std::cout << "First name : " << contact_phone[i].getstr("_last_name") << std::endl;
-		std::cout << "Last name : " << contact_phone[i].getstr("_first_name")<< std::endl;
-		std::cout << "Nickname : " << contact_phone[i].getstr("_nickname") << std::endl;
-		std::cout << "Phone number : " << contact_phone[i].getstr("_phone_number") << std::endl;
-		std::cout << "Darkest_secret : " << contact_phone[i].getstr("_darkest_secret") << std::endl;
+		std::cout << "First name : " << contact_phone[i - 1].getstr("_last_name") << std::endl;
+		std::cout << "Last name : " << contact_phone[i - 1].getstr("_first_name")<< std::endl;
+		std::cout << "Nickname : " << contact_phone[i - 1].getstr("_nickname") << std::endl;
+		std::cout << "Phone number : " << contact_phone[i - 1].getstr("_phone_number") << std::endl;
+		std::cout << "Darkest_secret : " << contact_phone[i - 1].getstr("_darkest_secret") << std::endl;
 	}
-	return;
-}
-
-void	PhoneBook::fonction(void){
-	std::cout << "Utilisation de la fonction Fonction" << std::endl;
+	// else
+	// {
+	// 	std::cout << "Error : Mauvais index" << std::endl;
+	// 	std::cin.clear();
+	// }
 	return;
 }
