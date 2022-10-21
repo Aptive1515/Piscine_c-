@@ -6,11 +6,11 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:38:59 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/19 18:07:15 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/21 19:44:22 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "phone.hpp"
+# include "../includes/phone.hpp"
 
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
@@ -23,7 +23,6 @@ public:
 			~PhoneBook(void);
 	void	contact_to_book(Contact *contact_phone);
 	void	affichage_contact(Contact *contact_phone) const;
-	void	fonction(void);
 	void	affichage_index(Contact *contact_phone) const;
 	void	setRepertory(int i);
 	Contact	*getRepertory();

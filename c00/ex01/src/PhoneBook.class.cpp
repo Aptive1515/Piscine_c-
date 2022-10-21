@@ -6,11 +6,11 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:41:13 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/19 18:08:40 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/21 17:52:37 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone.hpp"
+#include "../includes/phone.hpp"
 
 
 PhoneBook::PhoneBook(void)
@@ -101,12 +101,8 @@ void	PhoneBook::affichage_index(Contact *contact_phone) const
 		std::cout << "Phone number : " << contact_phone[i].getstr("_phone_number") << std::endl;
 		std::cout << "Darkest_secret : " << contact_phone[i].getstr("_darkest_secret") << std::endl;
 		std::cout << std::endl;
+		std::cin.clear();
 	}
-	return;
-}
-
-void	PhoneBook::fonction(void){
-	std::cout << "Utilisation de la fonction Fonction" << std::endl;
 	return;
 }
 

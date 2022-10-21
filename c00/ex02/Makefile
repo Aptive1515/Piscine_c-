@@ -6,11 +6,11 @@
 #    By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/10/19 18:33:48 by tdelauna         ###   ########.fr        #
+#    Updated: 2022/10/21 15:20:42 by tdelauna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	phone
+NAME	=	teller
 OS		= $(shell uname)
 
 # directories
@@ -19,9 +19,8 @@ INCDIR		=	./includes
 OBJDIR		=	./obj
 
 # src / obj files
-SRC		=	main.cpp\
-			Contact.class.cpp\
-			PhoneBook.class.cpp\
+SRC		=	tests.cpp\
+			Account.cpp\
 
 
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
