@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:11:14 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/19 18:09:04 by tdelauna         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:06:27 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	Contact::add_contact(void)
 	std::cin >> this->_phone_number;
 	std::cout << "Enter the darkest secret : " << std::endl;
 	std::cin >> this->_darkest_secret;
+	
 }
 
 std::string	Contact::getstr(std::string str) const
