@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:11:14 by aptive            #+#    #+#             */
-/*   Updated: 2022/10/20 15:39:53 by aptive           ###   ########.fr       */
+/*   Updated: 2022/10/21 19:48:46 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,25 @@ Contact::~Contact()
 void	Contact::add_contact(void)
 {
 	std::cout << "Enter the first name : " << std::endl;
-	std::cin >> this->_first_name;
+	getline(std::cin, this->_first_name);
+	if (std::cin.eof())
+		exit(EXIT_FAILURE);
 	std::cout << "Enter the last name : " << std::endl;
-	std::cin >> this->_last_name;
+	getline(std::cin, this->_last_name);
+	if (std::cin.eof())
+		exit(EXIT_FAILURE);
 	std::cout << "Enter the nickname : " << std::endl;
-	std::cin >> this->_nickname;
+	getline(std::cin, this->_nickname);
+	if (std::cin.eof())
+		exit(EXIT_FAILURE);
 	std::cout << "Enter the phone number : " << std::endl;
-	std::cin >> this->_phone_number;
+	getline(std::cin, this->_phone_number);
+	if (std::cin.eof())
+		exit(EXIT_FAILURE);
 	std::cout << "Enter the darkest secret : " << std::endl;
-	std::cin >> this->_darkest_secret;
+	getline(std::cin, this->_darkest_secret);
+	if (std::cin.eof())
+		exit(EXIT_FAILURE);
 }
 
 std::string	Contact::getstr(std::string str) const

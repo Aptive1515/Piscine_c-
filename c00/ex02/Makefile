@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
+#    By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/10/20 15:50:21 by aptive           ###   ########.fr        #
+#    Updated: 2022/10/21 15:20:42 by tdelauna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	phone
+NAME	=	teller
 OS		= $(shell uname)
 
 # directories
