@@ -6,11 +6,11 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:00:03 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/03 20:39:46 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:11:31 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Weapon.hpp"
+# include "Weapon.class.hpp"
 
 #ifndef HUMANA_CLASS_HPP
 # define HUMANA_CLASS_HPP

@@ -6,11 +6,12 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:21:12 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/03 20:38:47 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:13:23 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
+#include "../includes/Weapon.class.hpp"
+#include "../includes/HumanA.class.hpp"
 
 HumanA::HumanA( std::string name, Weapon& weapon ) : _weapon(weapon)
 {

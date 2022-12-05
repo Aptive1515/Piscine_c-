@@ -6,11 +6,11 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/11/02 18:12:48 by aptive           ###   ########.fr        #
+#    Updated: 2022/12/05 16:04:06 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	zombie
+NAME	=	horde
 OS		= $(shell uname)
 
 # directories

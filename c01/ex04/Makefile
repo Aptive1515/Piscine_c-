@@ -6,11 +6,11 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 20:18:17 by tdelauna          #+#    #+#              #
-#    Updated: 2022/11/04 20:09:36 by aptive           ###   ########.fr        #
+#    Updated: 2022/12/05 16:25:27 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	open
+NAME	=	replace
 OS		= $(shell uname)
 
 # directories

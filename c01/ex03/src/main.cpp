@@ -6,11 +6,13 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:59:42 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/03 20:27:18 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:12:11 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
+# include "../includes/Weapon.class.hpp"
+# include "../includes/HumanA.class.hpp"
+# include "../includes/HumanB.class.hpp"
 
 
 int main()

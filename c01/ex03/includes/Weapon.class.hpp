@@ -6,14 +6,16 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:28 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/03 20:35:09 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:11:18 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/Weapon.hpp"
-
 #ifndef WEAPON_CLASS_HPP
 # define WEAPON_CLASS_HPP
+
+# include <iostream>
+# include <string.h>
+# include <cstdlib>
 
 class Weapon
 {

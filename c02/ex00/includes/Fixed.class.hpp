@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:48:58 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/07 18:45:52 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/05 17:20:29 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
 
 
 	private:
-		int			_rawBits;
+		int					_rawBits;
 		static int const	_bits = 8;
 
 };
