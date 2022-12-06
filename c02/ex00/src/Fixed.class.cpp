@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:56:27 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/07 18:52:44 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:38:18 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ Fixed &	Fixed::operator=(Fixed const & rhs)
 void	Fixed::setRawBits( int const raw )
 {
 	this->_rawBits = raw;
+}
+
+std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs;
+	return o;
 }
