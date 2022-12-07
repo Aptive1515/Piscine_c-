@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:38:29 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/05 17:11:32 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:54:04 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int	count_line(std::ifstream &flux)
 	std::string	line;
 	int			i(0);
 
+
 	while (!flux.eof() && getline(flux, line))
 		i++;
 	back_begin_flux(flux);
+
 	return i;
 }
 
@@ -56,7 +58,8 @@ void	put_line_in_tab(std::ifstream &flux , std::string *tab)
 std::string	replace(std::string str, std::string s1, std::string s2)
 {
 	int	len_s1 = s1.size();
-
+	if (!s1.compare(s2))
+		return str;
 	while((int)str.find(s1, 0) != -1)
 	{
 		int pos = (int)str.find(s1);
@@ -66,9 +69,9 @@ std::string	replace(std::string str, std::string s1, std::string s2)
 	return (str);
 }
 
-void	change_line_in_tab(std::string *tab, std::string s1, std::string s2)
+void	change_line_in_tab(std::string *tab, std::string s1, std::string s2, int nb_line)
 {
-	for (int j = 0; j < (int)tab->size(); j++)
+	for (int j = 0; j < nb_line; j++)
 		tab[j] = replace(tab[j], s1, s2);
 }
 
@@ -102,7 +105,7 @@ int	main(int argc, char **argv)
 		return (1);
 	// mettre les lignes dans le tableau
 	put_line_in_tab(read_flux , tab_string);
-	change_line_in_tab(tab_string, argv[2], argv[3]);
+	change_line_in_tab(tab_string, argv[2], argv[3], nb_line);
 	//ecriture du tableau dans le fichier
 	read_flux.close();
 	write_in_file(tab_string, monfichier + ".replace", nb_line);
