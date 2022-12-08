@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:29:35 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/08 16:49:10 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/08 17:07:31 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
 	unsigned int	get_attack(void) const;
 
 
-private:
+protected:
 	std::string				_name;
 	unsigned int			_hit;
 	unsigned int			_energy;

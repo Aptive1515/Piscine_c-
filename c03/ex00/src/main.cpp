@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:40:49 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/06 19:27:22 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/08 16:44:57 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,31 @@ void affiche(ClapTrap *player)
 int main(void)
 {
 	ClapTrap player("PLAYER_ONE");
+	ClapTrap player_two(player);
+	ClapTrap player_three = player;
 
-
-	affiche(&player);
+	std::cout << "Player" << std::endl;
+	std::cout << player;
+	std::cout << "Player_two" << std::endl;
+	std::cout << player_two;
+	std::cout << "Player_three" << std::endl;
+	std::cout << player_three;
 
 	player.attack("ENEMY");
-	affiche(&player);
+	std::cout << player;
 
 	player.takeDamage(5);
-	affiche(&player);
+		std::cout << player;
 
 	player.beRepaired(10);
-	affiche(&player);
+		std::cout << player;
 
 	player.takeDamage(12);
-	affiche(&player);
+		std::cout << player;
 
 	player.beRepaired(10);
 	player.attack("ENEMY");
-	affiche(&player);
+	std::cout << player;
+
 	return 0;
 }

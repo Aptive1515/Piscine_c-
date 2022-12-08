@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:38:29 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/05 17:11:32 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/08 16:48:05 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	write_in_file(std::string *tab, std::string monfichier, int nb_line)
 int	main(int argc, char **argv)
 {
 
-	std::string const	monfichier(argv[1]);
 	std::string			line;
 	int					nb_line;
 
 	if (!check_arg(argc))
 		return 1;
+	std::string const	monfichier(argv[1]);
 	//ouverture fichier et controle ouverture
 	std::ifstream	read_flux(monfichier.c_str());
 	if (!read_flux.is_open())

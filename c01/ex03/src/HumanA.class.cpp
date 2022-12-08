@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:21:12 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/05 16:13:23 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/08 16:47:21 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 HumanA::HumanA( std::string name, Weapon& weapon ) : _weapon(weapon)
 {
 	this->_name = name;
-	weapon = weapon;
+	// weapon = weapon;
 }
 
 HumanA::~HumanA( void )
