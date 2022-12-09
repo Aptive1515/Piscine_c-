@@ -6,16 +6,12 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:52:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/08 19:21:48 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:41:24 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_CLASS_HPP
 # define DIAMONDTRAP_CLASS_HPP
-
-#define RED "\033[1;31m"
-#define GREEN "\033[1;32m"
-#define END "\033[0m"
 
 # include "ClapTrap.class.hpp"
 # include "ScavTrap.class.hpp"
