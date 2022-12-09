@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:46:18 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/08 17:19:37 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/09 15:56:32 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int main( void ) {
 	Fixed const d( b );
 	a = Fixed( 1234.4321f );
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	std::cout << d.getRawBits() << std::endl;
+	// std::cout << a.getRawBits() << std::endl;
+	// std::cout << b.getRawBits() << std::endl;
+	// std::cout << c.getRawBits() << std::endl;
+	// std::cout << d.getRawBits() << std::endl;
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;

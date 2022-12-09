@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:56:27 by aptive            #+#    #+#             */
-/*   Updated: 2022/11/08 17:10:51 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/09 15:56:45 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ Fixed::~Fixed( void )
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-
 	return this->_rawBits;
 }
 
@@ -49,7 +47,6 @@ void	Fixed::setRawBits( int const raw )
 {
 	this->_rawBits = raw;
 }
-
 
 Fixed::Fixed( int const nb )
 {
@@ -75,6 +72,7 @@ int		Fixed::toInt( void ) const
 
 std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
 {
+
 	o << rhs.toFloat();
 	return o;
 }
