@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:04:25 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/08 17:35:04 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/16 20:32:38 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(void)
 {
 	std::cout << "ScavTrap Constructor by default called" << std::endl;
 	this->_hit = 100;
-	this->_energy = 100;
+	this->_energy = 50;
 	this->_attack = 20;
 }
 
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap( std::string name)
 	std::cout << "ScavTrap Constructor by name called" << std::endl;
 	this->_name = name;
 	this->_hit = 100;
-	this->_energy = 100;
+	this->_energy = 50;
 	this->_attack = 20;
 }
 
@@ -44,7 +44,7 @@ ScavTrap &	ScavTrap::operator=(ScavTrap const & rhs)
 	{
 		this->_name = rhs.get_name();
 		this->_hit = rhs.get_hit();
-		this->_energy = rhs.get_energy();
+		this->_energy = get_energy();
 		this->_attack = rhs.get_attack();
 
 	}
@@ -110,6 +110,11 @@ void		ScavTrap::guardGate()
 			<< " can't change mode because is dead"
 			<<std::endl;
 	}
+}
+
+void	ScavTrap::set_default_energy(void)
+{
+	this->_energy = 50;
 }
 
 std::ostream &	operator<<(std::ostream & o, ScavTrap const & rhs)

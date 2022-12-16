@@ -18,21 +18,25 @@
 DiamondTrap::DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Constructor by default called" << std::endl;
+	ClapTrap::_name = "Default_clap_name";
+	this->_name = "Default";
+	this->_hit = FragTrap::_hit;
+	this->_attack = FragTrap::_attack;
+	ScavTrap::set_default_energy();
+
 }
 
-DiamondTrap::DiamondTrap( std::string name)
+DiamondTrap::DiamondTrap( std::string name )
 {
 	std::cout << "DiamondTrap Constructor by name called" << std::endl;
 	ClapTrap::_name = name + "_clap_name";
 	this->_name = name;
 	this->_hit = FragTrap::_hit;
-	this->_energy = ScavTrap::_energy;
-	this->_attack = ScavTrap::_attack;
-
-
+	this->_attack = FragTrap::_attack;
+	ScavTrap::set_default_energy();
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap const & src) : ClapTrap(src), ScavTrap(src), FragTrap(src)
+DiamondTrap::DiamondTrap( DiamondTrap const & src) : ClapTrap(src), ScavTrap(src),FragTrap(src)
 {
 	std::cout << "DiamondTrap Constructor Copy called" << std::endl;
 	*this = src;
@@ -46,22 +50,21 @@ DiamondTrap &	DiamondTrap::operator=(DiamondTrap const & rhs)
 	{
 		ClapTrap::_name = rhs.ClapTrap::_name;
 		this->_name = rhs._name;
-		this->_hit = rhs.FragTrap::_hit;
 		this->_energy = rhs._energy;
 		this->_attack = rhs._attack;
 	}
 	return *this;
 }
 
-void	DiamondTrap::attack(const std::string& target)
-{
-	ScavTrap::attack(target);
-}
+// void	DiamondTrap::attack(const std::string& target)
+// {
+// 	ScavTrap::attack(target);
+// }
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << GREEN << "name : " << this->DiamondTrap::get_name() << std::endl;
-	std::cout<< "name claptrap : " << this->ClapTrap::get_name() <<END << std::endl;
+	std::cout << "name : " << this->DiamondTrap::get_name() << std::endl;
+	std::cout<< "name claptrap : " << this->ClapTrap::get_name() << std::endl;
 }
 
 std::string		DiamondTrap::get_name(void) const
@@ -76,12 +79,10 @@ DiamondTrap::~DiamondTrap()
 
 std::ostream &	operator<<(std::ostream & o, DiamondTrap const & rhs)
 {
-	o << RED;
 	o << "---------------------------------------------" << std::endl;
 	o << rhs.DiamondTrap::get_name() << " life : " << rhs.get_hit() << std::endl;
-	o << rhs.ClapTrap::get_name() << " Energy : " << rhs.get_energy() << std::endl;
+	o << rhs.ClapTrap::get_name() << " Energy : " << rhs.ScavTrap::get_energy() << std::endl;
 	o << rhs.get_name() << " attack : " << rhs.get_attack() << std::endl;
 	o << "*********************************************" << std::endl;
-	o << END;
 	return o;
 }
