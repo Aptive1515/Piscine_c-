@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:52:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/08 23:41:24 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/16 20:28:59 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ScavTrap.class.hpp"
 # include "FragTrap.class.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap , public FragTrap
 {
 	public:
 				DiamondTrap(void);
@@ -26,14 +26,16 @@ class DiamondTrap : public ScavTrap, public FragTrap
 				DiamondTrap &	operator=(DiamondTrap const & rhs);
 	virtual		~DiamondTrap();
 
-	void		attack(const std::string& target);
+	// void		attack(const std::string& target);
 	void		whoAmI();
+	using		ScavTrap::attack;
 
 //getteur
 	std::string		get_name(void) const;
 
 	private:
 		std::string	_name;
+	using FragTrap::_energy;
 		/* data */
 };
 

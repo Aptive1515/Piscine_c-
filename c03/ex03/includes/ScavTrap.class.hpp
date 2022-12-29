@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:52:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/08 18:20:40 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/16 20:33:01 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 class ScavTrap : virtual public ClapTrap
 {
 	public:
-				ScavTrap(void);
-				ScavTrap( std::string name);
-				ScavTrap( ScavTrap const & src);
-				ScavTrap &	operator=(ScavTrap const & rhs);
-	virtual		~ScavTrap();
+					ScavTrap(void);
+					ScavTrap( std::string name);
+					ScavTrap( ScavTrap const & src);
+					ScavTrap &	operator=(ScavTrap const & rhs);
+		virtual		~ScavTrap();
 
-	void		attack(const std::string& target);
-	void		guardGate();
+		void		attack(const std::string& target);
+		void		guardGate();
+		void		set_default_energy(void);
 
 	private:
 		/* data */
