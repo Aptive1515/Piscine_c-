@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Updated: 2022/12/29 19:41:54 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Animal
 
 	std::string	getType(void) const;
 
-	void		makeSound(void) const;
+	virtual void		makeSound(void) const = 0;
 
 	protected:
 		std::string _type;

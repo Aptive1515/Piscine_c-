@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Created: 2022/12/29 18:44:07 by aptive            #+#    #+#             */
+/*   Updated: 2022/12/29 19:02:22 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
+# include <string>
 
-# define RED "\033[1;31m"
-# define GREEN "\033[1;32m"
-# define END "\033[0m"
-
-class Animal
+class Brain
 {
+
 	public:
-				Animal(void);
-				Animal(Animal const & src);
-				Animal & operator=(Animal const & rhs);
-	virtual		~Animal();
 
-	std::string	getType(void) const;
+		Brain();
+		Brain( Brain const & src );
+		~Brain();
 
-	void		makeSound(void) const;
+		Brain &		operator=( Brain const & rhs );
 
-	protected:
-		std::string _type;
+		//Accessor
+		const std::string& getIdeas(int index) const;
+
+	private:
+		std::string	_ideas[100];
+
 };
 
-std::ostream &	operator<<(std::ostream & o, Animal const & rhs);
+std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
-
-#endif
+#endif /* *********************************************************** BRAIN_H */

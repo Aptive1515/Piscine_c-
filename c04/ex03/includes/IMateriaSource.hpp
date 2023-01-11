@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Created: 2022/12/30 20:25:13 by aptive            #+#    #+#             */
+/*   Updated: 2022/12/30 20:28:06 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
 # include <iostream>
+# include <string>
+# include "AMateria.hpp"
 
-# define RED "\033[1;31m"
-# define GREEN "\033[1;32m"
-# define END "\033[0m"
-
-class Animal
+class IMateriaSource
 {
 	public:
-				Animal(void);
-				Animal(Animal const & src);
-				Animal & operator=(Animal const & rhs);
-	virtual		~Animal();
-
-	std::string	getType(void) const;
-
-	void		makeSound(void) const;
-
-	protected:
-		std::string _type;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };
-
-std::ostream &	operator<<(std::ostream & o, Animal const & rhs);
-
 
 #endif

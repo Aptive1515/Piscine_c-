@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Created: 2022/12/09 00:03:57 by aptive            #+#    #+#             */
+/*   Updated: 2022/12/29 19:51:14 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
+# include <string>
+# include "Animal.class.hpp"
+# include "Brain.hpp"
 
-# define RED "\033[1;31m"
-# define GREEN "\033[1;32m"
-# define END "\033[0m"
-
-class Animal
+class Dog : public Animal
 {
+
 	public:
-				Animal(void);
-				Animal(Animal const & src);
-				Animal & operator=(Animal const & rhs);
-	virtual		~Animal();
 
-	std::string	getType(void) const;
+					Dog();
+					Dog( Dog const & src );
+					~Dog();
+		Dog &		operator=( Dog const & rhs );
 
-	void		makeSound(void) const;
+	virtual void		makeSound(void) const;
 
-	protected:
-		std::string _type;
+	private:
+		Brain *_brain;
+	// Getteur
 };
 
-std::ostream &	operator<<(std::ostream & o, Animal const & rhs);
+std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
-
-#endif
+#endif /* ************************************************************* DOG_H */

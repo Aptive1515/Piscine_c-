@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Created: 2023/01/06 15:39:10 by aptive            #+#    #+#             */
+/*   Updated: 2023/01/06 15:59:41 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 # include <iostream>
+# include <string>
+# include "Form.hpp"
 
+# define GREEN "\033[1;32m"
 # define RED "\033[1;31m"
 # define GREEN "\033[1;32m"
+# define YELLOW "\033[1;33m"
 # define END "\033[0m"
 
-class Animal
+class Intern
 {
 	public:
-				Animal(void);
-				Animal(Animal const & src);
-				Animal & operator=(Animal const & rhs);
-	virtual		~Animal();
+					Intern( void );
+					Intern( Intern const & src );
+		Intern &	operator=( Intern const & rhs );
+					~Intern();
 
-	std::string	getType(void) const;
-
-	void		makeSound(void) const;
-
-	protected:
-		std::string _type;
+	// --------------------------------- METHODS ----------------------------------
+		Form*		makeForm(std::string name_form, std::string name_target);
+	private:
+		/* data */
 };
 
-std::ostream &	operator<<(std::ostream & o, Animal const & rhs);
-
-
 #endif
+
