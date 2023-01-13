@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 00:05:53 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:34:47 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/13 15:24:54 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+void	Cat::makeSound(void) const
+{
+	std::cout << this->getType() << " : Miaou Miaou !!!" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

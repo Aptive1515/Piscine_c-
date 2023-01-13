@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:37:41 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/09 00:53:48 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/13 15:24:01 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ std::ostream &	operator<<(std::ostream & o, Animal const & rhs)
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	Animal::makeSound(void) const
-{
-	if (!this->_type.compare("Dog"))
-		std::cout << this->getType() << " : Whouaf Whouaf !!!" << std::endl;
-	else if (!this->_type.compare("Cat"))
-		std::cout << this->getType() << " : Miaou Miaou !!!" << std::endl;
-	else
-		std::cout << this->getType() << " : No sounds !!!" << std::endl;
+// void	Animal::makeSound(void) const
+// {
+// 	if (!this->_type.compare("Dog"))
+// 		std::cout << this->getType() << " : Whouaf Whouaf !!!" << std::endl;
+// 	else if (!this->_type.compare("Cat"))
+// 		std::cout << this->getType() << " : Miaou Miaou !!!" << std::endl;
+// 	else
+// 		std::cout << this->getType() << " : No sounds !!!" << std::endl;
 
-}
+// }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

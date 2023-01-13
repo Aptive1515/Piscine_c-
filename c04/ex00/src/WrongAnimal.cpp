@@ -65,9 +65,7 @@ std::ostream &	operator<<(std::ostream & o, WrongAnimal const & rhs)
 */
 void	WrongAnimal::makeSound(void) const
 {
-	if (!this->_type.compare("WrongCat"))
-		std::cout << this->getType() << " : Wrong Miaou Wrong Miaou !!!" << std::endl;
-	else
+	if (this->_type.compare("WrongCat"))
 		std::cout << this->getType() << " : Wrong No sounds !!!" << std::endl;
 
 }

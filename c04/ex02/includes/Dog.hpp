@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 00:03:57 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:51:14 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:39:32 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Dog : public Animal
 					~Dog();
 		Dog &		operator=( Dog const & rhs );
 
-	virtual void		makeSound(void) const;
+	void		makeSound(void) const;
 
 	private:
 		Brain *_brain;
