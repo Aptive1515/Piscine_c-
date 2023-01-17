@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:53:35 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 17:52:41 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 17:55:25 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Scalaire::Scalaire (std::string value)
 // gestion _char_value;
 	if (value.size() == 1 && !std::isdigit(static_cast<int>(value[0])))
 	{
-		this->_char_value = static_cast<char>(value[0]);
+		this->_char_value =(value[0]);
 		this->_type = Char;
 	}
 	else
@@ -50,7 +50,7 @@ Scalaire::Scalaire (std::string value)
 	this->_float_value = static_cast<float>(std::strtof(value.c_str(), &end_float));
 
 // gestion _double_value;
-	this->_double_value = static_cast<double>(std::strtof(value.c_str(), NULL));
+	this->_double_value = static_cast<double>(std::strtod(value.c_str(), NULL));
 
 
 // getion _type

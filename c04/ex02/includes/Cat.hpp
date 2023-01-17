@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 00:03:57 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:51:30 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:33:44 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Cat : public Animal
 	// ACCESSOR ---------------------------------------------
 
 	// METHODS ----------------------------------------------
-		virtual void		makeSound(void) const;
+		void		makeSound(void) const;
 	private:
 		Brain *_brain;
 

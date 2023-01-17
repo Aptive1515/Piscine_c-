@@ -64,7 +64,10 @@ std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
+void	WrongCat::makeSound(void) const
+{
+	std::cout << this->getType() << " : Wrong Miaou Wrong Miaou !!!" << std::endl;
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

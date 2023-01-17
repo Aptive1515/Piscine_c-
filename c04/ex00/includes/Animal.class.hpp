@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:35:44 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:00 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:28:49 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Animal
 
 	std::string	getType(void) const;
 
-	void		makeSound(void) const;
+	virtual void		makeSound(void) const;
 
 	protected:
 		std::string _type;

@@ -30,6 +30,8 @@ class WrongCat : public WrongAnimal
 	// ACCESSOR ---------------------------------------------
 
 	// METHODS ----------------------------------------------
+		void	makeSound(void) const;
+
 
 
 };

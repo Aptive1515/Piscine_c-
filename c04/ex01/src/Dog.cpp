@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 00:05:53 by aptive            #+#    #+#             */
-/*   Updated: 2022/12/29 19:15:26 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/13 15:25:30 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
+void	Dog::makeSound(void) const
+{
+	std::cout << this->getType() << " : Whouaf Whouaf !!!" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
