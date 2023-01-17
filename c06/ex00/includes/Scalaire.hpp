@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:05:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/11 01:25:37 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 17:31:43 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 # include <string>
 # include <cstdlib>
 # include <climits>
+# include <limits>
 # include <cmath>
+# include <cctype>
+
+# define MAX 2147483647
+# define MIN -2147483647
 
 enum scalarType	{Char, Int, Float, Double, Default};
 

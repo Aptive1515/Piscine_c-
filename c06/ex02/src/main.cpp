@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:06:51 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/11 23:28:38 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 16:59:09 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ Base * generate(void)
 	switch (rand() % 3 + 1)
 	{
 		case 1:
-			std::cout << "A" << std::endl;
+			std::cout << "Initialiszation :	A" << std::endl;
 			dest = new A();
 			break;
 		case 2:
-			std::cout << "B" << std::endl;
+			std::cout << "Initialiszation :	B" << std::endl;
 			dest = new B();
 			break;
 		case 3:
-			std::cout << "C" << std::endl;
+			std::cout << "Initialiszation :	C" << std::endl;
 			dest = new C();
 			break;
 	}
@@ -43,22 +43,39 @@ Base * generate(void)
 void identify(Base* p)
 {
 	if (dynamic_cast<A *>(p))
-		std::cout << "A" << std::endl;
+		std::cout << "By pointeur :		A" << std::endl;
 	else if (dynamic_cast<B *>(p))
-		std::cout << "B" << std::endl;
+		std::cout << "By pointeur :		B" << std::endl;
 	else if (dynamic_cast<C *>(p))
-		std::cout << "C" << std::endl;
+		std::cout << "By pointeur :		C" << std::endl;
 }
 
 // Elle affiche le véritable type de l’objet p
 void identify(Base& p)
 {
-	if (dynamic_cast<A *>(&p))
-		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B *>(&p))
-		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C *>(&p))
-		std::cout << "C" << std::endl;
+	try
+	{
+		static_cast<void>(dynamic_cast<A&>(p));
+		std::cout << "By reference :		A" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
+
+	try
+	{
+		static_cast<void>(dynamic_cast<B&>(p));
+		std::cout << "By reference :		B" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
+
+	try
+	{
+		static_cast<void>(dynamic_cast<C&>(p));
+		std::cout << "By reference :		C" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
 }
 
 

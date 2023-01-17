@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:06:51 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/11 17:43:25 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 17:52:52 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,9 @@ void	verif_arg(int argc, char **argv)
 
 int main (int argc, char **argv)
 {
-	// std::cout << std::isdigit(int('f')) << std::endl;
-
-
 	verif_arg(argc, argv);
 
 	Scalaire	obj(argv[1]);
-
 	std::cout << obj;
 
 	return 0;
