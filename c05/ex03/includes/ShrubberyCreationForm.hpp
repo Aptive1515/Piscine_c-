@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:23:57 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 15:56:37 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:35:33 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 class ShrubberyCreationForm : virtual public Form
 {
 	public:
-				ShrubberyCreationForm();
-				ShrubberyCreationForm( ShrubberyCreationForm const & src );
-				ShrubberyCreationForm(std::string name, std::string target);
-				~ShrubberyCreationForm();
+					ShrubberyCreationForm();
+					ShrubberyCreationForm( ShrubberyCreationForm const & src );
+					ShrubberyCreationForm(std::string name, std::string target);
+		virtual		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &			operator=( ShrubberyCreationForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------

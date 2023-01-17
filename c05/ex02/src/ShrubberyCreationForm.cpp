@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyPardonForm.cpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:25:16 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 02:03:28 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:37:46 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ShrubberyPardonForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Buraucrate.hpp"
+#include "../includes/Form.hpp"
+
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyPardonForm::ShrubberyPardonForm() : Form("Default", "Default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("Default", "Default", 145, 137)
 {}
 
-ShrubberyPardonForm::ShrubberyPardonForm( const ShrubberyPardonForm & src ) : Form (src)
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : Form (src)
 {}
 
-ShrubberyPardonForm::ShrubberyPardonForm(std::string name, std::string target) : Form(name, target, 5, 25)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : Form(name, target, 5, 25)
 {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyPardonForm::~ShrubberyPardonForm()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyPardonForm &	ShrubberyPardonForm::operator=( ShrubberyPardonForm const & rhs )
+ShrubberyCreationForm &	ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
 {
 	if ( this != &rhs )
 		Form::operator=(rhs);
@@ -47,11 +49,11 @@ ShrubberyPardonForm &	ShrubberyPardonForm::operator=( ShrubberyPardonForm const 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	ShrubberyPardonForm::execute_form() const
+void	ShrubberyCreationForm::execute_form() const
 {
 	std::ofstream	ofs;
 
-	ofs.open((getTarget() + "_shrubbery").c_str(), std::ofstream::out);
+	ofs.open((this->Form::getTarget() + "_shrubbery").c_str(), std::ofstream::out);
 
 	if (!ofs.is_open())
 		return ;

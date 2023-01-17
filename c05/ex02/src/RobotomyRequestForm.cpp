@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotonyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:18:43 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 15:35:45 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:36:33 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/RobotonyRequestForm.hpp"
-#include <time.h>
+#include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/Buraucrate.hpp"
+#include "../includes/Form.hpp"
+
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotonyRequestForm::RobotonyRequestForm() : Form("Default", "Default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("Default", "Default", 72, 45)
 {}
 
-RobotonyRequestForm::RobotonyRequestForm( const RobotonyRequestForm & src ) : Form (src)
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form (src)
 {}
 
-RobotonyRequestForm::RobotonyRequestForm(std::string name, std::string target) : Form(name, target, 5, 25)
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, target, 5, 25)
 {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-RobotonyRequestForm::~RobotonyRequestForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-RobotonyRequestForm &	RobotonyRequestForm::operator=( RobotonyRequestForm const & rhs )
+RobotomyRequestForm &	RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
 {
 	if ( this != &rhs )
 		Form::operator=(rhs);
@@ -48,14 +49,14 @@ RobotonyRequestForm &	RobotonyRequestForm::operator=( RobotonyRequestForm const 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	RobotonyRequestForm::execute_form() const
+void	RobotomyRequestForm::execute_form() const
 {
-	std::cout << "PZZZZZZZ PZZZZZZ PZZZZZ" << std::endl;
+	std::cout << "Criiii Criiii Criiii Criiii" << std::endl;
 	srand(time(NULL));
 	if (rand() % 2)
-		std::cout << "SUCCESSED" << std::endl << "Congratulation "<< this->_target << " , you've come a step further to greatness !" << std::endl;
+		std::cout << "SUCCESSED : " << this->Form::getTarget() << " have been Robotomized !" << std::endl;
 	else
-		std::cout << "FAILED" << std::endl << "The damages on "<< this->_target <<" are irreversible !" << std::endl;
+		std::cout << "FAILED : the operation on " <<  this->Form::getTarget() << " have failed !" <<std::endl;
 }
 
 /*

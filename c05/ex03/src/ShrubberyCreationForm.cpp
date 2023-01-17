@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:25:16 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 02:03:28 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:37:46 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Buraucrate.hpp"
+#include "../includes/Form.hpp"
+
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -51,7 +53,7 @@ void	ShrubberyCreationForm::execute_form() const
 {
 	std::ofstream	ofs;
 
-	ofs.open((getTarget() + "_shrubbery").c_str(), std::ofstream::out);
+	ofs.open((this->Form::getTarget() + "_shrubbery").c_str(), std::ofstream::out);
 
 	if (!ofs.is_open())
 		return ;

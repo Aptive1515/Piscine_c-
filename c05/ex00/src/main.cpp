@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:48:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/05 18:43:24 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 19:00:54 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main (void)
 
 	try
 	{
-		// test.incrementation();
-		// test.decrementation();
+		test.decrementation();
+		test.incrementation();
 		std::cout << test;
 	}
 	catch(const std::exception& e)
@@ -41,7 +41,7 @@ int main (void)
 	try
 	{
 		// test3.incrementation();
-		test3.decrementation();
+		// test3.decrementation();
 		std::cout << test3;
 	}
 	catch(const std::exception& e)

@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:39:10 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 15:59:41 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:24:13 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 class Intern
 {
 	public:
-					Intern( void );
-					Intern( Intern const & src );
+						Intern( void );
+						Intern( Intern const & src );
+		virtual			~Intern();
 		Intern &	operator=( Intern const & rhs );
-					~Intern();
 
 	// --------------------------------- METHODS ----------------------------------
 		Form*		makeForm(std::string name_form, std::string name_target);

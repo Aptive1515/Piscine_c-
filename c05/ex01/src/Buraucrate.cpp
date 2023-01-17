@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:31 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/05 18:42:49 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 20:48:59 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Buraucrate::Buraucrate(std::string name, unsigned int grade)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error : Buraucrate " << e.what() << '\n';
 	}
 }
 
@@ -85,7 +85,7 @@ std::ostream &			operator<<( std::ostream & o, Buraucrate const & i )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error : Affichage Buraucrate " << e.what() << '\n';
 	}
 	return o;
 }
@@ -97,18 +97,32 @@ std::ostream &			operator<<( std::ostream & o, Buraucrate const & i )
 
 void	Buraucrate::incrementation( void )
 {
-	if (this->_grade - 1 < 1)
-		throw Buraucrate::GradeTooLowException();
-	else
-		this->_grade--;
+	try
+	{
+		if (this->_grade - 1 < 1)
+			throw Buraucrate::GradeTooHighException();
+		else
+			this->_grade--;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't increment " << this->_name << " " << e.what() << '\n';
+	}
 }
 
 void	Buraucrate::decrementation( void )
 {
-	if (this->_grade + 1 > 150)
-		throw Buraucrate::GradeTooHighException();
-	else
-		this->_grade++;
+	try
+	{
+		if (this->_grade + 1 > 150)
+			throw Buraucrate::GradeTooLowException();
+		else
+			this->_grade++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't increment " << this->_name << " " << e.what() << '\n';
+	}
 }
 
 

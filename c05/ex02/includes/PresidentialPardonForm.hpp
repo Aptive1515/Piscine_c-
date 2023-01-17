@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:19:40 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 01:48:53 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:14:30 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 class PresidentialPardonForm : virtual public Form
 {
 	public:
-				PresidentialPardonForm();
-				PresidentialPardonForm( PresidentialPardonForm const & src );
-				PresidentialPardonForm(std::string name, std::string target);
-				~PresidentialPardonForm();
+					PresidentialPardonForm();
+					PresidentialPardonForm( PresidentialPardonForm const & src );
+					PresidentialPardonForm(std::string name, std::string target);
+		virtual		~PresidentialPardonForm();
 
 		PresidentialPardonForm &			operator=( PresidentialPardonForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------

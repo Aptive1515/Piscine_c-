@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyPardonForm.hpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 00:23:57 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 01:53:57 by aptive           ###   ########.fr       */
+/*   Created: 2023/01/06 00:16:31 by aptive            #+#    #+#             */
+/*   Updated: 2023/01/17 21:36:07 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYPARDONFORM_HPP
-# define SHRUBBERYPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
 # include <string>
-# include <fstream>
+# include <time.h>
+# include <stdlib.h>
 # include "Buraucrate.hpp"
 # include "Form.hpp"
+# include <time.h>
 
-class ShrubberyPardonForm : virtual public Form
+class RobotomyRequestForm : public Form
 {
 	public:
-				ShrubberyPardonForm();
-				ShrubberyPardonForm( ShrubberyPardonForm const & src );
-				ShrubberyPardonForm(std::string name, std::string target);
-				~ShrubberyPardonForm();
+					RobotomyRequestForm();
+					RobotomyRequestForm( RobotomyRequestForm const & src );
+					RobotomyRequestForm(std::string name, std::string target);
+		virtual		~RobotomyRequestForm();
 
-		ShrubberyPardonForm &			operator=( ShrubberyPardonForm const & rhs );
+		RobotomyRequestForm &	operator=( RobotomyRequestForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------
 		void	execute_form() const;
+
+
 	private:
 };
+
+// std::ostream &	operator<<( std::ostream & o, RobotonyRequestForm const & i );
 
 #endif

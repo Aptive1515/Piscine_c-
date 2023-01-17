@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:46:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 01:48:17 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:09:22 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,41 @@ class Form
 		Form &			operator=( Form const & rhs );
 
 		// ** --------------------------------- METHODS ----------------------------------
-		void	besigned(Buraucrate bureaucrate);
+		void			besigned(Buraucrate bureaucrate);
 		void			execute(Buraucrate const& executor) const;
 		virtual void	execute_form() const = 0;
-		// virtual void	execute(Buraucrate const & executor) const = 0;
 
 		// ** --------------------------------- ACCESSOR ---------------------------------
 		std::string		getName() const;
-		std::string		getTarget() const;
 		bool			getSign() const;
+		std::string		getTarget() const;
 		unsigned int	getGradeToSign() const;
 		unsigned int	getGradeToExec() const;
 
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("Grade too hight");
+			}
+	};
 
-	protected:
-		std::string		_name;
-		std::string		_target;
-		bool			_sign;
-		unsigned int	_gradeToSign;
-		unsigned int	_gradeToExec;
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("Grade too low");
+			}
+	};
+
+	private:
+		std::string const	_name;
+		bool				_sign;
+		std::string			_target;
+		unsigned int const	_gradeToSign;
+		unsigned int const	_gradeToExec;
 
 };
 

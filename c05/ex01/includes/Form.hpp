@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:46:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/05 19:08:15 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:36:55 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form
 						Form();
 						Form( Form const & src );
 						Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec);
-						~Form();
+		virtual			~Form();
 
 		Form &			operator=( Form const & rhs );
 
@@ -57,10 +57,10 @@ class Form
 	};
 
 	private:
-		std::string		_name;
-		bool			_sign;
-		unsigned int	_gradeToSign;
-		unsigned int	_gradeToExec;
+		std::string const	_name;
+		bool				_sign;
+		unsigned int const	_gradeToSign;
+		unsigned int const	_gradeToExec;
 
 };
 

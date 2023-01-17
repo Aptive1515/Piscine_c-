@@ -6,7 +6,7 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 17:28:02 by aptive            #+#    #+#              #
-#    Updated: 2023/01/06 00:26:07 by aptive           ###   ########.fr        #
+#    Updated: 2023/01/17 21:31:56 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRC		=	main.cpp\
 			Buraucrate.cpp\
 			Form.cpp\
 			PresidentialPardonForm.cpp\
-			RobotonyRequestForm.cpp\
-			ShrubberyPardonForm.cpp\
+			RobotomyRequestForm.cpp\
+			ShrubberyCreationForm.cpp\
 
 
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

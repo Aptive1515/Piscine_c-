@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:52:36 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 16:31:18 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:15:41 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,24 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form()
-{
-	this->_name = "Default";
-	this->_target = "Default";
-	this->_sign = 0;
-	this->_gradeToExec = 150;
-	this->_gradeToSign = 150;
-}
+Form::Form() : _name("Default"), _sign(0), _target("Default"), _gradeToSign(150), _gradeToExec(150)
+{}
 
-Form::Form( const Form & src )
-{
-	*this = src;
-}
+Form::Form( const Form & src ) : _name(src.getName()), _sign(src.getSign()), _target(src.getTarget()), _gradeToSign(src.getGradeToSign()), _gradeToExec(src.getGradeToExec())
+{}
 
-Form::Form(std::string name, std::string target, unsigned int gradeToSign, unsigned int gradeToExec)
+Form::Form(std::string name,std::string target,unsigned int gradeToSign, unsigned int gradeToExec) : _name(name),  _sign(0), _target(target), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
-	this->_name = name;
-	this->_target = target;
-	this->_sign = 0;
-
 	try
 	{
-		if (gradeToSign > 150 || gradeToExec > 150)
-			throw Buraucrate::GradeTooHighException();
-		else if (gradeToSign < 1 || gradeToExec > 150)
-			throw Buraucrate::GradeTooLowException();
-		else
-		{
-			this->_gradeToSign = gradeToSign;
-			this->_gradeToExec = gradeToExec;
-		}
+		if (this->getGradeToSign() > 150 || this->getGradeToExec() > 150)
+			throw Form::GradeTooLowException();
+		else if (this->getGradeToSign() < 1 || this->getGradeToExec() < 1)
+			throw Form::GradeTooHighException();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error Form : " << e.what() << '\n';
 	}
 }
 
@@ -61,7 +44,6 @@ Form::Form(std::string name, std::string target, unsigned int gradeToSign, unsig
 Form::~Form()
 {}
 
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
@@ -70,10 +52,7 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
-		this->_sign = rhs.getSign();
-		this->_gradeToExec = rhs.getGradeToExec();
-		this->_gradeToSign = rhs.getGradeToExec();
+		*this = rhs;
 	}
 	return *this;
 }
@@ -83,9 +62,9 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 	try
 	{
 		if (i.getGradeToSign() > 150 || i.getGradeToExec() > 150)
-			throw Buraucrate::GradeTooHighException();
+			throw Form::GradeTooLowException();
 		else if (i.getGradeToSign() < 1 || i.getGradeToExec() < 1)
-			throw Buraucrate::GradeTooLowException();
+			throw Form::GradeTooHighException();
 		o 	<< i.getName()
 			<< ", grade to sign " << i.getGradeToSign()
 			<< ", grade to exec " << i.getGradeToExec()
@@ -95,31 +74,33 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error : Affichage Form "  << e.what() << '\n';
 	}
 	return o;
 }
 
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-void	Form::besigned(Buraucrate bureaucrate)
+void			Form::besigned(Buraucrate bureaucrate)
 {
-
 	try
 	{
-		if (this->_sign == 1)
-		{
+		if (bureaucrate.getGrade() > this->_gradeToSign)
+			throw Form::GradeTooLowException();
+		else if (this->getGradeToSign() > 150 || this->getGradeToExec() > 150)
+			throw Form::GradeTooHighException();
+		else if (this->getGradeToSign() < 1 || this->getGradeToExec() < 1)
+			throw Form::GradeTooLowException();
+		else if (this->_sign == 1)
 			std::cout
 			<< bureaucrate.getName()
 			<< " couldn’t sign "
 			<< this->_name
 			<< "because already sign"
 			<< std::endl;
-		}
-		else if (bureaucrate.getGrade() > this->_gradeToSign)
-			throw Buraucrate::GradeTooLowException();
+		else
 		{
 			std::cout << bureaucrate.getName() << " signed " << this->_name << std::endl;
 			this->_sign = 1;
@@ -127,19 +108,25 @@ void	Form::besigned(Buraucrate bureaucrate)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << bureaucrate.getName() << " couldn't sign " <<  this->_name << " because " << e.what() << std::endl;
 	}
 }
 
 void	Form::execute(Buraucrate const& executor) const
 {
-	// std::cout << executor.getGrade() << " | " << this->getExec() << std::endl;
-	if (!getSign())
-		throw std::string("{ Form is not signed ! }\n");
-	else if (executor.getGrade() > this->getGradeToExec())
-		throw Buraucrate::GradeTooLowException();
-	else
-		execute_form();
+	try
+	{
+		if (!getSign())
+			throw std::string("{ Form is not signed ! }\n");
+		else if (executor.getGrade() > this->getGradeToExec())
+			throw Buraucrate::GradeTooLowException();
+		else
+			execute_form();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
 }
 
 /*
@@ -150,15 +137,14 @@ std::string	Form::getName() const
 	return this->_name;
 }
 
-std::string		Form::getTarget() const
-{
-	return this->_target;
-}
-
-
 bool			Form::getSign() const
 {
 	return this->_sign;
+}
+
+std::string Form::getTarget () const
+{
+	return this->_target;
 }
 
 unsigned int	Form::getGradeToSign() const
@@ -170,5 +156,7 @@ unsigned int	Form::getGradeToExec() const
 {
 	return this->_gradeToExec;
 }
+
+
 
 /* ************************************************************************** */

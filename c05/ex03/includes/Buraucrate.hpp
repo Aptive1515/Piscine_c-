@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:25 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/05 18:50:43 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:36:05 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Buraucrate
 						Buraucrate();
 						Buraucrate( Buraucrate const & src );
 						Buraucrate(std::string name, unsigned int grade);
-						~Buraucrate();
+		virtual			~Buraucrate();
 
 		Buraucrate &	operator=( Buraucrate const & rhs );
 

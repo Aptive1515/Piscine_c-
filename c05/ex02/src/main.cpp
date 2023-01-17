@@ -6,15 +6,15 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:48:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/06 01:59:07 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/17 21:37:04 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Buraucrate.hpp"
 #include "../includes/Form.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/RobotonyRequestForm.hpp"
-#include "../includes/ShrubberyPardonForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 # define RED "\033[1;31m"
 # define GREEN "\033[1;32m"
@@ -37,7 +37,7 @@ int main (void)
 
 	std::cout << GREEN <<"---------------------------------- 2th ----------------------------------"  << std::endl;
 
-	Form		*form_pardon = new RobotonyRequestForm("RobotonyRequestForm One", "target One");
+	Form		*form_pardon = new RobotomyRequestForm("RobotonyRequestForm One", "target One");
 
 	std::cout << test;
 	std::cout << *form_pardon;
@@ -45,7 +45,7 @@ int main (void)
 	form_pardon->execute(test);
 
 	std::cout << YELLOW <<"---------------------------------- 3th ----------------------------------"  << std::endl;
-	Form		*form_shrubbery = new ShrubberyPardonForm("ShrubberyPardonForm One", "target One");
+	Form		*form_shrubbery = new ShrubberyCreationForm("ShrubberyPardonForm One", "target One");
 
 	std::cout << test;
 	std::cout << *form_pardon;
