@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Scalaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:05:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 17:31:43 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 19:01:12 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
-# include <climits>
+// # include <climits>
 # include <limits>
 # include <cmath>
 # include <cctype>

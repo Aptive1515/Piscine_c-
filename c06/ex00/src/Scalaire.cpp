@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Scalaire.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:53:35 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 17:55:25 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 19:07:09 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ Scalaire::Scalaire (std::string value)
 
 
 // getion _type
-	if (this->_type == Char)
-		this->_type = Char;
-	else if (!*end_int)
+
+	if (!*end_int)
 		this->_type = Int;
 	else if (end_float[0] == 'f')
 		this->_type = Float;
@@ -111,11 +110,6 @@ std::ostream &			operator<<( std::ostream & o, Scalaire const & i )
 			if (std::isnan(i.getDoubleValue()))
 				throw Scalaire::Impossible();
 			break;
-		case Float:
-			if (std::isnan(i.getDoubleValue()))
-				throw Scalaire::Impossible();
-			break;
-
 		default:
 			break;
 		}
@@ -130,7 +124,8 @@ std::ostream &			operator<<( std::ostream & o, Scalaire const & i )
 
 	try
 	{
-		if (!modf( i.getFloatValue() , &intpart) )
+		modf( i.getFloatValue() , &intpart);
+		if (intpart != 0)
 		{
 			o.precision(1);
 			o << std::fixed;
@@ -144,7 +139,8 @@ std::ostream &			operator<<( std::ostream & o, Scalaire const & i )
 
 	try
 	{
-		if (!modf( i.getDoubleValue() , &intpart) )
+		modf( i.getFloatValue() , &intpart);
+		if (intpart != 0)
 		{
 			o.precision(1);
 			o << std::fixed;

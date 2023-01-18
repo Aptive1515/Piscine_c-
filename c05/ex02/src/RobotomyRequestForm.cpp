@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:18:43 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/18 17:48:51 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:04:31 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ void	RobotomyRequestForm::execute(Buraucrate const& executor) const
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+	catch(const std::string& e)
+	{
+		std::cerr << e << '\n';
 	}
 
 }

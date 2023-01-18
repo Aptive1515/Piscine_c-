@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:48:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/18 17:44:54 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:05:30 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main (void)
 {
 
 	std::cout << RED <<"---------------------------------- 1st ----------------------------------" << std::endl;
-	Buraucrate	test("Number One", 1);
+	Buraucrate	test("Number One", 140);
 	Form		*form_presidential = new PresidentialPardonForm("PresidentialPardonForm One", "target One");
 
 	std::cout << test;
@@ -41,7 +41,6 @@ int main (void)
 	std::cout << test;
 	std::cout << *form_pardon;
 	test.signForm(*form_pardon);
-	// test.execute_form(*form_pardon);
 	form_pardon->execute(test);
 
 	std::cout << YELLOW <<"---------------------------------- 3th ----------------------------------"  << std::endl;

@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:31 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/18 17:29:10 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:04:15 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,10 @@ void			Buraucrate::execute_form(Form const & form) const
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+	catch(const std::string& e)
+	{
+		std::cerr << e << '\n';
 	}
 }
 
