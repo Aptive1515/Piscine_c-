@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:19:40 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:14:30 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:39 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ class PresidentialPardonForm : virtual public Form
 
 		PresidentialPardonForm &			operator=( PresidentialPardonForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------
-		virtual void	execute_form() const;
+		void	execute(Buraucrate const& executor) const;
 	private:
 };
 
-// std::ostream &	operator<<( std::ostream & o, PresidentialPardonForm const & i );
 
 #endif

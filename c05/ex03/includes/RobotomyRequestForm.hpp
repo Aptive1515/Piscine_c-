@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:16:31 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:36:07 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:34 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ class RobotomyRequestForm : public Form
 
 		RobotomyRequestForm &	operator=( RobotomyRequestForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------
-		void	execute_form() const;
+		void	execute(Buraucrate const& executor) const;
 
 
 	private:
 };
 
-// std::ostream &	operator<<( std::ostream & o, RobotonyRequestForm const & i );
 
 #endif

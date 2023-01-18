@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:18:43 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:36:33 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:51 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm() : Form("Default", "Default", 72, 45)
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form (src)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, target, 5, 25)
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, target, 72, 45)
 {}
 
 /*
@@ -49,14 +49,30 @@ RobotomyRequestForm &	RobotomyRequestForm::operator=( RobotomyRequestForm const 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	RobotomyRequestForm::execute_form() const
+
+void	RobotomyRequestForm::execute(Buraucrate const& executor) const
 {
-	std::cout << "Criiii Criiii Criiii Criiii" << std::endl;
-	srand(time(NULL));
-	if (rand() % 2)
-		std::cout << "SUCCESSED : " << this->Form::getTarget() << " have been Robotomized !" << std::endl;
-	else
-		std::cout << "FAILED : the operation on " <<  this->Form::getTarget() << " have failed !" <<std::endl;
+	try
+	{
+		if (!getSign())
+			throw std::string("{ Form is not signed ! }\n");
+		else if (executor.getGrade() > this->getGradeToExec())
+			throw Buraucrate::GradeTooLowException();
+		else
+		{
+			std::cout << "Criiii Criiii Criiii Criiii" << std::endl;
+			srand(time(NULL));
+			if (rand() % 2)
+				std::cout << "SUCCESSED : " << this->Form::getTarget() << " have been Robotomized !" << std::endl;
+			else
+				std::cout << "FAILED : the operation on " <<  this->Form::getTarget() << " have failed !" <<std::endl;
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+
 }
 
 /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:48:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:41:16 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:53:16 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int main (void)
 		else
 		{
 			std::cout << *form_robotomy;
-			form_robotomy->besigned(test);
-			form_robotomy->execute(test);
+			test.signForm(*form_robotomy);
+			test.execute_form(*form_robotomy);
 		}
 	}
 	catch(const std::string except)
@@ -61,8 +61,8 @@ int main (void)
 		else
 		{
 			std::cout << *form_fake;
-			form_fake->besigned(test);
-			form_fake->execute(test);
+			test.signForm(*form_fake);
+			test.execute_form(*form_fake);
 		}
 	}
 	catch(const std::string except)

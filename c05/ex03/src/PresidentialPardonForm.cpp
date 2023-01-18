@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:26:28 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:23:05 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:49:46 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("Default","Default",5, 25)
+PresidentialPardonForm::PresidentialPardonForm() : Form("Default","Default",25, 5)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form (src)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const name, std::string target) : Form(name, target, 5, 25)
+PresidentialPardonForm::PresidentialPardonForm(std::string const name, std::string target) : Form(name, target, 25, 5)
 {}
 
 /*
@@ -49,9 +49,22 @@ PresidentialPardonForm &	PresidentialPardonForm::operator=( PresidentialPardonFo
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	PresidentialPardonForm::execute_form() const
+void	PresidentialPardonForm::execute(Buraucrate const& executor) const
 {
-	std::cout << this->Form::getTarget() << " have been forgiveness by the President Zaphod Beeblebrox" << std::endl;
+	try
+	{
+		if (!getSign())
+			throw std::string("{ Form is not signed ! }\n");
+		else if (executor.getGrade() > this->getGradeToExec())
+			throw Buraucrate::GradeTooLowException();
+		else
+			std::cout << this->Form::getTarget() << " have been forgiveness by the President Zaphod Beeblebrox" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+
 }
 
 /*

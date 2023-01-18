@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Buraucrate.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:31 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 20:48:55 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:08:05 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Buraucrate::Buraucrate()
+Buraucrate::Buraucrate() : _name("Default")
 {
-	this->_name = "Default";
 	this->_grade = 1;
 }
 
-Buraucrate::Buraucrate( const Buraucrate & src )
-{
-	*this = src;
-}
+Buraucrate::Buraucrate( const Buraucrate & src ) : _name(src.getName()), _grade(src.getGrade())
+{}
 
-Buraucrate::Buraucrate(std::string name, unsigned int grade)
+Buraucrate::Buraucrate(std::string name, unsigned int grade) : _name(name)
 {
-	this->_name = name;
-
 	try
 	{
 		if (grade > 150)
@@ -64,7 +59,7 @@ Buraucrate &				Buraucrate::operator=( Buraucrate const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
+		*this = rhs;
 		this->_grade = rhs.getGrade();
 	}
 	return *this;

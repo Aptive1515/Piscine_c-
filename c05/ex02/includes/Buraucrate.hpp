@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Buraucrate.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:25 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 18:36:05 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:23:17 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
+
+
+class Form;
 
 class Buraucrate
 {
@@ -31,6 +35,10 @@ class Buraucrate
 		// ** --------------------------------- METHODS ----------------------------------
 		void			incrementation( void );
 		void			decrementation( void );
+		void			signForm( Form & formulaire );
+		void			execute_form(Form const & form) const;
+
+
 
 		// ** --------------------------------- ACCESSOR ---------------------------------
 		std::string		getName() const;
@@ -55,8 +63,8 @@ class Buraucrate
 		};
 
 	private:
-		std::string		_name;
-		unsigned int	_grade;
+		std::string	const	_name;
+		unsigned int		_grade;
 };
 
 std::ostream &			operator<<( std::ostream & o, Buraucrate const & i );

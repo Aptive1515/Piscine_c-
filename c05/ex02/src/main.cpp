@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:48:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:37:04 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:44:54 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ int main (void)
 
 	std::cout << test;
 	std::cout << *form_presidential;
-	form_presidential->besigned(test);
-	form_presidential->execute(test);
-
+	test.signForm(*form_presidential);
+	test.execute_form(*form_presidential);
 
 	std::cout << GREEN <<"---------------------------------- 2th ----------------------------------"  << std::endl;
 
@@ -41,16 +40,17 @@ int main (void)
 
 	std::cout << test;
 	std::cout << *form_pardon;
-	form_pardon->besigned(test);
+	test.signForm(*form_pardon);
+	// test.execute_form(*form_pardon);
 	form_pardon->execute(test);
 
 	std::cout << YELLOW <<"---------------------------------- 3th ----------------------------------"  << std::endl;
-	Form		*form_shrubbery = new ShrubberyCreationForm("ShrubberyPardonForm One", "target One");
+	Form		*form_shrubbery = new ShrubberyCreationForm("ShrubberyCreationForm One", "target One");
 
 	std::cout << test;
-	std::cout << *form_pardon;
-	form_shrubbery->besigned(test);
-	form_shrubbery->execute(test);
+	std::cout << *form_shrubbery;
+	test.signForm(*form_shrubbery);
+	test.execute_form(*form_shrubbery);
 
 
 	delete form_presidential;

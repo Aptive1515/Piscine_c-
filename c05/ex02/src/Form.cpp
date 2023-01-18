@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:52:36 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:15:41 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:59:12 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void			Form::besigned(Buraucrate bureaucrate)
 			<< std::endl;
 		else
 		{
-			std::cout << bureaucrate.getName() << " signed " << this->_name << std::endl;
 			this->_sign = 1;
 		}
 	}
@@ -112,22 +111,22 @@ void			Form::besigned(Buraucrate bureaucrate)
 	}
 }
 
-void	Form::execute(Buraucrate const& executor) const
-{
-	try
-	{
-		if (!getSign())
-			throw std::string("{ Form is not signed ! }\n");
-		else if (executor.getGrade() > this->getGradeToExec())
-			throw Buraucrate::GradeTooLowException();
-		else
-			execute_form();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Error : Can't execute " << e.what() << '\n';
-	}
-}
+// void	Form::execute(Buraucrate const& executor) const
+// {
+// 	try
+// 	{
+// 		if (!getSign())
+// 			throw std::string("{ Form is not signed ! }\n");
+// 		else if (executor.getGrade() > this->getGradeToExec())
+// 			throw Buraucrate::GradeTooLowException();
+// 		else
+// 			execute_form();
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << "Error : Can't execute " << e.what() << '\n';
+// 	}
+// }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

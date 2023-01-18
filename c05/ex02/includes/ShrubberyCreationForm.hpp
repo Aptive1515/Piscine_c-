@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:23:57 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:35:33 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:36 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ class ShrubberyCreationForm : virtual public Form
 
 		ShrubberyCreationForm &			operator=( ShrubberyCreationForm const & rhs );
 		// ** --------------------------------- METHODS ----------------------------------
-		void	execute_form() const;
+		void	execute(Buraucrate const& executor) const;
 	private:
 };
+
+
 
 #endif

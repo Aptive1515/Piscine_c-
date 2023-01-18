@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:39:10 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:24:13 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:55:12 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Intern
 						Intern( void );
 						Intern( Intern const & src );
 		virtual			~Intern();
-		Intern &	operator=( Intern const & rhs );
+		Intern &		operator=( Intern const & rhs );
 
 	// --------------------------------- METHODS ----------------------------------
 		Form*		makeForm(std::string name_form, std::string name_target);

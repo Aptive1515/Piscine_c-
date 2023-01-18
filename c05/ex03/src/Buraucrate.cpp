@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Buraucrate.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:31 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 20:48:59 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:29:10 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Buraucrate::Buraucrate()
+Buraucrate::Buraucrate() : _name("Default")
 {
-	this->_name = "Default";
 	this->_grade = 1;
 }
 
-Buraucrate::Buraucrate( const Buraucrate & src )
-{
-	*this = src;
-}
+Buraucrate::Buraucrate( const Buraucrate & src ) : _name(src.getName()), _grade(src.getGrade())
+{}
 
-Buraucrate::Buraucrate(std::string name, unsigned int grade)
+Buraucrate::Buraucrate(std::string name, unsigned int grade) : _name(name)
 {
-	this->_name = name;
-
 	try
 	{
 		if (grade > 150)
@@ -45,7 +40,6 @@ Buraucrate::Buraucrate(std::string name, unsigned int grade)
 		std::cerr << "Error : Buraucrate " << e.what() << '\n';
 	}
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -64,8 +58,8 @@ Buraucrate &				Buraucrate::operator=( Buraucrate const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
-		this->_grade = rhs.getGrade();
+		*this = rhs;
+		// this->_grade = rhs.getGrade();
 	}
 	return *this;
 }
@@ -122,6 +116,52 @@ void	Buraucrate::decrementation( void )
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error : Can't increment " << this->_name << " " << e.what() << '\n';
+	}
+}
+
+void	Buraucrate::signForm( Form & formulaire )
+{
+	try
+	{
+		if (this->getGrade() > formulaire.getGradeToSign())
+			throw Form::GradeTooLowException();
+		else if (formulaire.getGradeToSign() > 150 || formulaire.getGradeToExec() > 150)
+			throw Form::GradeTooHighException();
+		else if (formulaire.getGradeToSign() < 1 || formulaire.getGradeToExec() < 1)
+			throw Form::GradeTooLowException();
+		else if (formulaire.getSign() == 1)
+			std::cout
+			<< this->getName()
+			<< " couldn’t sign "
+			<< formulaire.getName()
+			<< "because already sign"
+			<< std::endl;
+		else
+		{
+			std::cout << this->getName() << " signed " << formulaire.getName() << std::endl;
+			formulaire.besigned(*this);
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " <<  formulaire.getName()<< " because " << e.what() << std::endl;
+	}
+}
+
+void			Buraucrate::execute_form(Form const & form) const
+{
+	try
+	{
+		if (!form.getSign())
+			throw std::string("{ Form is not signed ! }\n");
+		else if (this->getGrade() > form.getGradeToExec())
+			throw Buraucrate::GradeTooLowException();
+		else
+			form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't execute " << e.what() << '\n';
 	}
 }
 

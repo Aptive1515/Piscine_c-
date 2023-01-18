@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:46:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:09:22 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:58:47 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include "Buraucrate.hpp"
+
+class Buraucrate;
 
 class Form
 {
@@ -31,8 +33,8 @@ class Form
 
 		// ** --------------------------------- METHODS ----------------------------------
 		void			besigned(Buraucrate bureaucrate);
-		void			execute(Buraucrate const& executor) const;
-		virtual void	execute_form() const = 0;
+		virtual void	execute(Buraucrate const& executor) const = 0;
+		// virtual void	execute_form() const = 0;
 
 		// ** --------------------------------- ACCESSOR ---------------------------------
 		std::string		getName() const;

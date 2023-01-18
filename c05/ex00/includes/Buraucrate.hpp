@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Buraucrate.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:51:25 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 18:36:20 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:04:07 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ class Buraucrate
 	};
 
 	private:
-		std::string	_name;
-		unsigned int	_grade;
+		std::string	const	_name;
+		unsigned int		_grade;
 };
 
 std::ostream &			operator<<( std::ostream & o, Buraucrate const & i );

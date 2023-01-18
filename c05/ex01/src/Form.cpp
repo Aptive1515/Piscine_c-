@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 18:52:36 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 20:50:11 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:47:00 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void			Form::besigned(Buraucrate bureaucrate)
 			<< std::endl;
 		else
 		{
-			std::cout << bureaucrate.getName() << " signed " << this->_name << std::endl;
 			this->_sign = 1;
 		}
 	}

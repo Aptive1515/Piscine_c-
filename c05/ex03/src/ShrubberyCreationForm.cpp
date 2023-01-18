@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:25:16 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/17 21:37:46 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:31 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("Default", "Default", 145,
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : Form (src)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : Form(name, target, 5, 25)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : Form(name, target, 145, 137)
 {}
 
 /*
@@ -49,24 +49,40 @@ ShrubberyCreationForm &	ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	ShrubberyCreationForm::execute_form() const
+
+void	ShrubberyCreationForm::execute(Buraucrate const& executor) const
 {
-	std::ofstream	ofs;
+	try
+	{
+		if (!getSign())
+			throw std::string("{ Form is not signed ! }\n");
+		else if (executor.getGrade() > this->getGradeToExec())
+			throw Buraucrate::GradeTooLowException();
+		else
+		{
+			std::ofstream	ofs;
 
-	ofs.open((this->Form::getTarget() + "_shrubbery").c_str(), std::ofstream::out);
+			ofs.open((this->Form::getTarget() + "_shrubbery").c_str(), std::ofstream::out);
 
-	if (!ofs.is_open())
-		return ;
+			if (!ofs.is_open())
+				return ;
 
-    ofs << "                     / \\" << std::endl;
-    ofs << "                    /   \\" << std::endl;
-    ofs << "                   /     \\ " << std::endl;
-	ofs << "                  /       \\" << std::endl;
-	ofs << "                 /         \\" << std::endl;
-	ofs << "                /___________\\" << std::endl;
-	ofs << "                      ||" << std::endl;
+			ofs << "                     / \\" << std::endl;
+			ofs << "                    /   \\" << std::endl;
+			ofs << "                   /     \\ " << std::endl;
+			ofs << "                  /       \\" << std::endl;
+			ofs << "                 /         \\" << std::endl;
+			ofs << "                /___________\\" << std::endl;
+			ofs << "                      ||" << std::endl;
 
-	ofs.close();
+			ofs.close();
+			}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
