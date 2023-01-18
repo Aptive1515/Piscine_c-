@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:26:28 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/18 17:49:46 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:04:25 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ void	PresidentialPardonForm::execute(Buraucrate const& executor) const
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+	catch(const std::string& e)
+	{
+		std::cerr << e << '\n';
 	}
 
 }

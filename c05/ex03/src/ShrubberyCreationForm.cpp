@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 00:25:16 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/18 17:48:31 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:04:37 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ void	ShrubberyCreationForm::execute(Buraucrate const& executor) const
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error : Can't execute " << e.what() << '\n';
+	}
+	catch(const std::string& e)
+	{
+		std::cerr << e << '\n';
 	}
 
 }
