@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:05:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/19 23:26:53 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/20 20:18:36 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,12 @@
 # include <vector>
 # include <list>
 # include <algorithm>
+# include <numeric>
 
-template <typename T>
-typename T::iterator	easyfind(T & arg, int nb)
-{
-
-	typename T::iterator it = std::find(arg.begin(), arg.end(), nb);
-
-	if (it != arg.end())
-		return it;
-	throw std::string("Error not find in the container");
-}
+# define GREEN "\033[1;32m"
+# define RED "\033[1;31m"
+# define YELLOW "\033[1;33m"
+# define END "\033[0m"
 
 class Span
 {
@@ -50,6 +45,7 @@ class Span
 	// METHODS ------------------------------------------------------------------
 
 		void	addNumber(int nb);
+		void	addNumber(std::vector<int>::iterator it_begin, std::vector<int>::iterator it_end);
 		int		shortestSpan( void );
 		int		longestSpan( void );
 

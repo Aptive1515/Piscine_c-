@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:45:39 by aptive            #+#    #+#             */
-/*   Updated: 2023/01/19 23:22:15 by aptive           ###   ########.fr       */
+/*   Updated: 2023/01/20 18:04:31 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,24 @@ void	Span::addNumber(int nb)
 	{
 		std::cerr << e << std::endl;
 	}
-
 }
+
+void	Span::addNumber(std::vector<int>::iterator it_begin, std::vector<int>::iterator it_end)
+{
+	try
+	{
+		if (std::distance(it_begin, it_end) > this->_len)
+			throw std::string("Error : Max push");
+
+		for (std::vector<int>::iterator it = it_begin; it != it_end; it++)
+			this->_tab_int.push_back(*it);
+	}
+	catch (const std::string& e)
+	{
+		std::cerr << e << std::endl;
+	}
+}
+
 
 int		Span::shortestSpan( void )
 {
@@ -78,7 +94,7 @@ int		Span::shortestSpan( void )
 
 	try
 	{
-		if (this->_tab_int.size() <= 1)
+		if (this->_tab_int.empty() == true)
 			throw std::string("Error : Impossible longestSpan");
 
 		std::vector<int>::iterator it_nb = tmp_vector.begin();
@@ -113,7 +129,7 @@ int		Span::longestSpan( void )
 
 	try
 	{
-		if (this->_tab_int.size() <= 1)
+		if (this->_tab_int.empty() == true)
 			throw std::string("Error : Impossible longestSpan");
 
 		std::sort(tmp_vector.begin(), tmp_vector.end());
